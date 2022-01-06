@@ -1,62 +1,3 @@
-<!DOCTYPE html>
-<<<<<<< HEAD
-	<html>
-	<head>
-	</head>
-<header>
-	<script SRC="index.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Calculator</title>
-</header>
-
-<body>
-	<section>
-		<div id="calculator">
-			<div class="top">
-				<span class="erase">
-					<button type="button" id="clear" value="clear" onclick="keyPressed(this)">C</button>
-					<button type="button" id="delete" value="Backspace" onclick="keyPressed(this)">&larr;</button>
-				</span>
-				<div class="screen">
-					<input type="textfield" name="ans" value="" id="display" readonly>
-				</div>
-
-				<div class="keys">
-				
-					<div><button class="button" type="button" id="myBtn1" value="1" onclick="keyPressed(this)">1</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn2" value="2" onclick="keyPressed(this)">2</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn3" value="3" onclick="keyPressed(this)">3</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn*" value="*" onclick="keyPressed(this)">*</button></div>
-
-					<div><button class="button" type="button" id="myBtn4" value="4" onclick="keyPressed(this)">4</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn5" value="5" onclick="keyPressed(this)">5</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn6" value="6" onclick="keyPressed(this)">6</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn/" value="/" onclick="keyPressed(this)">/</button></div>
-
-					<div><button class="button" type="button" id="myBtn7" value="7" onclick="keyPressed(this)">7</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn8" value="8" onclick="keyPressed(this)">8</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn9" value="9" onclick="keyPressed(this)">9</button>
-					</div>
-					<div><button class="button" type="button" id="decimal" value="." onclick="keyPressed(this)">.</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn+" value="+" onclick="keyPressed(this)">+</button></div>
-					<div><button class="button" type="button" id="myBtn0" value="0" onclick="keyPressed(this)">0</button>
-					</div>
-					<div><button class="button" type="button" id="myBtn-" value="-" onclick="keyPressed(this)">-</button></div>
-					<div><button class="execute" type="button" id="myBtn=" value="=" onclick="keyPressed(this)">=</button>
-					</div>
-
-				</div>
-	</section>
-=======
 <html lang="en">
 <head>
     <title>Calculator</title>
@@ -76,42 +17,55 @@
             <div class="screen">
                 <input type="textfield" name="ans" value="" id="display" readonly>
             </div>
-
             <div class="keys">
-            
-                <div><button class="button" type="button" id="myBtn1" value="1" onclick="keyPressed(this)">1</button>
+                <div>
+                    <button class="button" type="button" id="myBtn1" value="1" onclick="keyPressed(this)">1</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn2" value="2" onclick="keyPressed(this)">2</button>
+                <div>
+                    <button class="button" type="button" id="myBtn2" value="2" onclick="keyPressed(this)">2</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn3" value="3" onclick="keyPressed(this)">3</button>
+                <div>
+                    <button class="button" type="button" id="myBtn3" value="3" onclick="keyPressed(this)">3</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn*" value="*" onclick="keyPressed(this)">*</button></div>
-
-                <div><button class="button" type="button" id="myBtn4" value="4" onclick="keyPressed(this)">4</button>
+                <div>
+                    <button class="button" type="button" id="myBtn*" value="*" onclick="keyPressed(this)">*</button></div>
+                <div>
+                    <button class="button" type="button" id="myBtn4" value="4" onclick="keyPressed(this)">4</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn5" value="5" onclick="keyPressed(this)">5</button>
+                <div>
+                    <button class="button" type="button" id="myBtn5" value="5" onclick="keyPressed(this)">5</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn6" value="6" onclick="keyPressed(this)">6</button>
+                <div>
+                    <button class="button" type="button" id="myBtn6" value="6" onclick="keyPressed(this)">6</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn/" value="/" onclick="keyPressed(this)">/</button></div>
-
-                <div><button class="button" type="button" id="myBtn7" value="7" onclick="keyPressed(this)">7</button>
+                <div>
+                    <button class="button" type="button" id="myBtn/" value="/" onclick="keyPressed(this)">/</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn8" value="8" onclick="keyPressed(this)">8</button>
+                <div>
+                    <button class="button" type="button" id="myBtn7" value="7" onclick="keyPressed(this)">7</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn9" value="9" onclick="keyPressed(this)">9</button>
+                <div>
+                    <button class="button" type="button" id="myBtn8" value="8" onclick="keyPressed(this)">8</button>
                 </div>
-                <div><button class="button" type="button" id="decimal" value="." onclick="keyPressed(this)">.</button>
+                <div>
+                    <button class="button" type="button" id="myBtn9" value="9" onclick="keyPressed(this)">9</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn+" value="+" onclick="keyPressed(this)">+</button></div>
-                <div><button class="button" type="button" id="myBtn0" value="0" onclick="keyPressed(this)">0</button>
+                <div>
+                    <button class="button" type="button" id="decimal" value="." onclick="keyPressed(this)">.</button>
                 </div>
-                <div><button class="button" type="button" id="myBtn-" value="-" onclick="keyPressed(this)">-</button></div>
-                <div><button class="execute" type="button" id="myBtn=" value="=" onclick="keyPressed(this)">=</button>
+                <div>
+                    <button class="button" type="button" id="myBtn+" value="+" onclick="keyPressed(this)">+</button>
                 </div>
-    </div>
-    </div>
->>>>>>> ed553f5b6cc29d41a289a5f06e0ca578ca875e26
+                <div>
+                    <button class="button" type="button" id="myBtn0" value="0" onclick="keyPressed(this)">0</button>
+                </div>
+                <div>
+                    <button class="button" type="button" id="myBtn-" value="-" onclick="keyPressed(this)">-</button>
+                </div>
+                <div>
+                    <button class="execute" type="button" id="myBtn=" value="=" onclick="keyPressed(this)">=</button>
+                </div>
+    	</div>
+	</div>
 </body>
-
-</html>
+	</html>

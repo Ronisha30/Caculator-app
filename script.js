@@ -1,58 +1,49 @@
-let display = ""; // string that keeps track of user inputs. 
-const inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "-", "*", "/", "."]; //set of possible user inputs
-// basic math functions for plus, minus, times , divide.
+let display = ""; // String that keeps track of user inputs. 
+let inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+", "-", "*", "/", "."]; //set of possible user inputs
+// Basic math functions for plus, minus, times , divide.
 let sum = function (a, b) {
 	return a + b;
 }
-
-
- let subtract = function (a, b) {
+let subtract = function (a, b) {
 	return a - b;
 }
-
-
 let multiply = function (a, b) {
 	return a * b;
 }
-
-
 let divide = function (a, b) {
-	// division by zero returns infinity
+	// Division by zero returns infinity
 	return a / b;
 }
-
-
-let operate = function (a, b, c) {                //function that employs the above math functions 
+let operate = function (a, b, c) {                //Function that employs the above math functions 
 	if (c == "+") { return sum(a, b); }
 	if (c == "-") { return subtract(a, b); }
 	if (c == "*") { return multiply(a, b); }
 	if (c == "/") { return divide(a, b); }
 	return "error invalid character";
 }
-// get values of a buttom when clicked
+// Get values of a buttom when clicked
 
 let keyPressed = function (btn) {
 	getKeyPressed(btn.value);
 }
-//get User input from the keyboard 
+//Get User input from the keyboard 
 document.addEventListener('keydown', function (event) {
 	getKeyPressed(event.key);
 });
-//these method is used to capture user inputs and
-//process it down to an answer to display on the screen 
+//Stores the user inputs in a array by checking the operatorsand get the numbers from the split//
 
 let calculations = function (string) {
 	let startNumber = 0;
 	let array = [];
 	let arraySplit = string.split("");
-	 let position = array.length;
+	let position = array.length;
 	for (let i = startNumber; i < arraySplit.length; i++) {
 		if (arraySplit[i] != "+" && arraySplit[i] != "-" && arraySplit[i] != "*" && arraySplit[i] != "/") {
-			if (array[position] !== undefined) {     //when array =[] this takes care of undefined
+			if (array[position] !== undefined) {     //When array =[] this takes care of undefined
 				array[position] += arraySplit[i];
 			}
 			else {
-				array[position] = arraySplit[i];    //cannot do += with an undefined element 
+				array[position] = arraySplit[i];    //Cannot do += with an undefined element 
 			}
 		}
 		else if (arraySplit[i] == "+" || arraySplit[i] == "-" || arraySplit[i] == "*" || arraySplit[i] == "/") {
@@ -68,7 +59,7 @@ let calculations = function (string) {
 	}
 	return array;
 }
-const stringToNumbers = function (array) {  // converts the operands from strings to numbers, leaves the operators as strings.  ex) ["1","+","2"] becomes [1,"+",2]	
+let stringToNumbers = function (array) {  // Converts the operands from strings to numbers, leaves the operators as strings.  ex) ["1","+","2"] becomes [1,"+",2]	
 	for (let i = 0; i < array.length; i++) {
 		if (array[i] != "+" && array[i] != "-" && array[i] != "*" && array[i] != "/") {
 			array[i] = parseFloat(array[i]);
@@ -76,22 +67,22 @@ const stringToNumbers = function (array) {  // converts the operands from string
 	}
 	return array;
 }
-let computeTimesAndDivide = function (array) { //does all the multiplaction and division needed 
-	let  returnArray = [];
-	for (i = 0; i < array.length; i++) {
+let computeTimesAndDivide = function (array) { //Does all the multiplaction and division needed 
+	let returnArray = [];
+	for (let i = 0; i < array.length; i++) {
+		var leftOperand;
 		if (typeof array[i] === "number") {
-			const leftOperand = array[i];
+			leftOperand = array[i];
 			if (array[i + 1] === "+" || array[i + 1] === "-" || i == array.length - 1) {
 				returnArray.push(array[i]);
 			}
-		}
-		else if (array[i] === "*" || array[i] === "/") {
-			 leftOperand = operate(leftOperand, array[i + 1], array[i]);
+		}else if (array[i] === "*" || array[i] === "/") {
+			leftOperand = operate(leftOperand, array[i + 1], array[i]);
 			if (array[i - 2] === "*" || array[i - 2] === "/") {
 				returnArray[returnArray.length - 1] = leftOperand;
 			}
 			else {
-				returnArray.push(leftOperand); //current solution to operate 
+				returnArray.push(leftOperand); //Current solution to operate 
 			}
 			i++;
 		}
@@ -101,33 +92,33 @@ let computeTimesAndDivide = function (array) { //does all the multiplaction and 
 	}
 	return returnArray;
 }
-let computePlusAndMinus = function (array) {  //computes all the plus and minus operations
-	const leftOperand = array[0];
+let computePlusAndMinus = function (array) {  //Computes all the plus and minus operations
+	let leftOperand = array[0];
 	for (i = 1; i < array.length; i++) {
 		leftOperand = operate(leftOperand, array[i + 1], array[i])
 		i++;
 	}
 	return leftOperand;
 }
-// excecute when the equals button is clicked to perform the requested task
+// Excecute when the equals button is clicked to perform the requested task
 let execute = function (string) {
-	const lastChar = string.charAt(string.length - 1);
+	let lastChar = string.charAt(string.length - 1);
 	if (lastChar != "+" && lastChar != "-" && lastChar != "*" && lastChar != "/" && string != "") {
-		const array = [];
+		let array = [];
 		array = calculations(string); // include last number
 		array = stringToNumbers(array);   //turn the strings to numbers
 		//array = getDivisionAndTimes(array);
 		array=computeTimesAndDivide(array);
-		const numberAnswer = computePlusAndMinus(array);
+		let numberAnswer = computePlusAndMinus(array);
 		numberAnswer = Math.round(numberAnswer * 10000) / 10000 //only allows for 4 decimals 
-		const stringAnswer = numberAnswer.toString();
+		let stringAnswer = numberAnswer.toString();
 		return stringAnswer;
 	}
 	else {
 
 	}
 }
-let getKeyPressed = function (cmd) { // takes the user input at does the appropriate logi based on it 
+let getKeyPressed = function (cmd) { // Takes the user input at does the appropriate logi based on it 
 	if (cmd == "=") {
 		document.getElementById("display").value = execute(display);
 		display = "";
@@ -152,19 +143,19 @@ let getKeyPressed = function (cmd) { // takes the user input at does the appropr
 		}
 	}
 }
-//smaller functions to support the other functions 
-let clearField = function () {  //deletes the UI textfield and the display letiable 
+//Smaller functions to support the other functions 
+let clearField = function () {  //Deletes the UI textfield and the display letiable 
 	display = document.getElementById("display").value = "";
 	display = "";
 }
-//remove the last number
+//Delete the last number
 let backSpace = function () {
 	if (display != "") {
 		display = display.slice(0, display.length - 1);
 		document.getElementById("display").value = display;
 	}
 }
-let decimalFind = function (string) {//checks if the last number has a decimal already in place
+let decimalFind = function (string) {//Checks if the last number has a decimal already in place
 	let i = string.length - 1;
 	while (i >= 0 && typeof parseInt(string.charAt(i)) == "number" && isNaN(parseInt(string.charAt(i))) == false) {
 		i--;
@@ -182,3 +173,4 @@ let decimalFind = function (string) {//checks if the last number has a decimal a
 	}
 
 }
+
