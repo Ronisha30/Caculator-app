@@ -30,7 +30,7 @@ let keyPressed = function (btn) {
 document.addEventListener('keydown', function (event) {
 	getKeyPressed(event.key);
 });
-//Stores the user inputs in a array by checking the operatorsand get the numbers from the split//
+//Stores the user inputs in a array by checking the operatorsand get the numbers from the spli
 
 let calculations = function (string) {
 	let startNumber = 0;
